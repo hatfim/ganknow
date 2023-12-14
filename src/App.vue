@@ -1,10 +1,12 @@
+<template>
+  <v-navbar />
+  <router-view />
+  <footer></footer>
+</template>
+
 <script setup>
+import { RouterView } from 'vue-router'
+import { VNavbar } from '@/components/molecules/VNavbar'
 </script>
 
-<template>
-  <header>
-    <h1>Test</h1>
-  </header>
-
-</template>
 
