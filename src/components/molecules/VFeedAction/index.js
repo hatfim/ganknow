@@ -1,3 +1,3 @@
-import VFeedAction from './VFeedAction.vue';
+import VFeedAction from './VFeedAction.vue'
 
-export default VFeedAction;
+export default VFeedAction

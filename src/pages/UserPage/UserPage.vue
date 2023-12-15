@@ -48,36 +48,36 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { RouterView, useRoute } from 'vue-router';
+import { computed } from 'vue'
+import { RouterView, useRoute } from 'vue-router'
 
-import { ShareIcon } from '@heroicons/vue/24/outline';
-import { CheckBadgeIcon, HeartIcon } from '@heroicons/vue/24/solid';
+import { ShareIcon } from '@heroicons/vue/24/outline'
+import { CheckBadgeIcon, HeartIcon } from '@heroicons/vue/24/solid'
 
-import { VAvatar } from '@/components/atoms/VAvatar';
-import { VButton } from '@/components/atoms/VButton';
-import { VTabNav } from '@/components/molecules/VTabNav';
+import { VAvatar } from '@/components/atoms/VAvatar'
+import { VButton } from '@/components/atoms/VButton'
+import { VTabNav } from '@/components/molecules/VTabNav'
 
-const route = useRoute();
-const currentRouteName = computed(() => route.name);
+const route = useRoute()
+const currentRouteName = computed(() => route.name)
 
 const props = defineProps({
   username: {
     type: String,
     default: undefined,
   },
-});
+})
 
 const tabs = [
   { name: 'profile', label: 'Profile', link: `/${props.username}` },
   { name: 'feed', label: 'Feed', link: `/${props.username}/feed` },
   { name: 'shop', label: 'Shop', link: `/${props.username}/shop` },
-];
+]
 
 const avatar = {
   img: 'https://lh3.googleusercontent.com/c8z_1HCYhinbcI164YumELKjAM3EUpTQdlshVxBwpXHuCD698DERm_-61z0poqOzbJEGuHuXxLHyNfEXg_Wiz4IZhSuykxgGHfrAt1LHr6kKhROpC4Txvg',
   username: 'Paddie',
-};
+}
 </script>
 
 <style scoped>

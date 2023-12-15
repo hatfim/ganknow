@@ -20,7 +20,7 @@ import {
   HeartIcon,
   ChatBubbleLeftEllipsisIcon,
   ShareIcon,
-} from '@heroicons/vue/24/outline';
+} from '@heroicons/vue/24/outline'
 
 defineProps({
   like: {
@@ -35,5 +35,5 @@ defineProps({
     type: Number,
     default: 0,
   },
-});
+})
 </script>

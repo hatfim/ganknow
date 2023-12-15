@@ -1,3 +1,3 @@
-import VFeedCard from './VFeedCard.vue';
+import VFeedCard from './VFeedCard.vue'
 
-export default VFeedCard;
+export default VFeedCard

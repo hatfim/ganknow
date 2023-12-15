@@ -1,3 +1,3 @@
-import VNavbar from './VNavbar.vue';
+import VNavbar from './VNavbar.vue'
 
-export default VNavbar;
+export default VNavbar

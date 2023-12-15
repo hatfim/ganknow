@@ -28,7 +28,7 @@ defineProps({
     default: 'default',
   },
   disabled: Boolean,
-});
+})
 
 // Variant classes
 const variantClasses = {
@@ -38,12 +38,12 @@ const variantClasses = {
   secondary: 'bg-secondary shadow-sm hover:bg-secondary/80',
   ghost: 'hover:bg-accent hover:text-accent-foreground',
   link: 'text-primary underline-offset-4 hover:underline',
-};
+}
 
 // Size classes
 const sizeClasses = {
   default: 'gap-x-2 px-6 py-2.5',
   medium: 'gap-x-1.5 px-4 py-2',
   small: 'gap-x-1.5 px-2.5 py-1.5',
-};
+}
 </script>

@@ -1,3 +1,3 @@
-import ShopTab from './ShopTab.vue';
+import ShopTab from './ShopTab.vue'
 
-export default ShopTab;
+export default ShopTab

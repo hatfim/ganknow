@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { VCommentItem } from '@/components/atoms/VCommentItem';
+import { VCommentItem } from '@/components/atoms/VCommentItem'
 
 const comment = {
   id: '9ab6d023-8b80-47a2-b3b4-d7378bb7a22b',
@@ -30,5 +30,5 @@ const comment = {
   replyToID: null,
   replies: null,
   softDeletedAt: null,
-};
+}
 </script>

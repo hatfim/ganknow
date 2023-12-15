@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router';
+import { RouterView } from 'vue-router'
 
-import { VNavbar } from '@/components/molecules/VNavbar';
+import { VNavbar } from '@/components/molecules/VNavbar'
 </script>

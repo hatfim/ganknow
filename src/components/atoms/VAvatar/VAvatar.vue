@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue';
+import { defineEmits } from 'vue'
 
 defineProps({
   avatar: {
@@ -33,28 +33,28 @@ defineProps({
     type: String,
     default: '',
   },
-});
+})
 
 // Size classes
 const imgSizeClasses = {
   default: 'w-24 lg:w-32 ring-4 ring-white',
   medium: 'w-12',
   small: 'w-10',
-};
+}
 const statusSizeClasses = {
   default: 'h-4 w-4',
   medium: 'h-2.5 w-2.5',
-};
+}
 
 const statusClasses = {
   offline: 'bg-gray-300',
   online: 'bg-green-600',
   idle: 'bg-orange-400',
-};
+}
 
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click'])
 
 const handleClick = (event) => {
-  emit('click', event);
-};
+  emit('click', event)
+}
 </script>

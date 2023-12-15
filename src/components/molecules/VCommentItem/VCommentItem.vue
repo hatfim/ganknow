@@ -15,18 +15,18 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 
-import { VAvatar } from '@/components/atoms/VAvatar';
+import { VAvatar } from '@/components/atoms/VAvatar'
 
 const props = defineProps({
   comment: {
     type: Object,
     default: () => {},
   },
-});
+})
 const avatar = computed(() => ({
   img: props.comment.authorUser.avatar,
   username: props.comment.authorUser.username,
-}));
+}))
 </script>

@@ -1,3 +1,3 @@
-import PostPage from './PostPage.vue';
+import PostPage from './PostPage.vue'
 
-export default PostPage;
+export default PostPage

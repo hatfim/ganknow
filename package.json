@@ -10,6 +10,7 @@
     "lint:fix": "pnpm run lint:js -- --fix && pnpm run lint:style -- --fix",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore src",
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "prettier": "prettier --write",
     "serve": "vite preview",
     "prepare": "husky install",
     "commit": "czg"

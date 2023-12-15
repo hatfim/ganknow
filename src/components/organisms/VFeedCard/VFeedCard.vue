@@ -48,14 +48,14 @@
 </template>
 
 <script setup>
-import { CheckBadgeIcon, EllipsisVerticalIcon } from '@heroicons/vue/24/solid';
+import { CheckBadgeIcon, EllipsisVerticalIcon } from '@heroicons/vue/24/solid'
 
-import { VAvatar } from '@/components/atoms/VAvatar';
-import { VFeedAction } from '@/components/molecules/VFeedAction';
-import { VComments } from '@/components/organisms/VComments';
+import { VAvatar } from '@/components/atoms/VAvatar'
+import { VFeedAction } from '@/components/molecules/VFeedAction'
+import { VComments } from '@/components/organisms/VComments'
 
 const avatar = {
   img: 'https://lh3.googleusercontent.com/c8z_1HCYhinbcI164YumELKjAM3EUpTQdlshVxBwpXHuCD698DERm_-61z0poqOzbJEGuHuXxLHyNfEXg_Wiz4IZhSuykxgGHfrAt1LHr6kKhROpC4Txvg',
   username: 'Paddie',
-};
+}
 </script>

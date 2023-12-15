@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import { VFeedCard } from '@/components/organisms/VFeedCard';
+import { VFeedCard } from '@/components/organisms/VFeedCard'
 </script>

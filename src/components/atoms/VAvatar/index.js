@@ -1,3 +1,3 @@
-import VAvatar from './VAvatar.vue';
+import VAvatar from './VAvatar.vue'
 
-export default VAvatar;
+export default VAvatar

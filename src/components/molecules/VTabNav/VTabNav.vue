@@ -16,8 +16,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { RouterLink } from 'vue-router';
+import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 // Define props
 const props = defineProps({
@@ -29,12 +29,12 @@ const props = defineProps({
     type: String,
     default: undefined,
   },
-});
+})
 
 const tabClass = computed(
   () => (tabName) =>
     tabName === props.current
       ? 'border-primary text-primary'
       : 'border-transparent text-gray-400 hover:text-white'
-);
+)
 </script>

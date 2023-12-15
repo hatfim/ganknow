@@ -1,3 +1,3 @@
-import VTabNav from './VTabNav.vue';
+import VTabNav from './VTabNav.vue'
 
-export default VTabNav;
+export default VTabNav

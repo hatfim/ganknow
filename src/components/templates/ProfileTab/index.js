@@ -1,3 +1,3 @@
-import ProfileTab from './ProfileTab.vue';
+import ProfileTab from './ProfileTab.vue'
 
-export default ProfileTab;
+export default ProfileTab

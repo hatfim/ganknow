@@ -1,3 +1,3 @@
-import VCommentItem from './VCommentItem.vue';
+import VCommentItem from './VCommentItem.vue'
 
-export default VCommentItem;
+export default VCommentItem

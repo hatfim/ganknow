@@ -1,3 +1,3 @@
-import VComments from './VComments.vue';
+import VComments from './VComments.vue'
 
-export default VComments;
+export default VComments

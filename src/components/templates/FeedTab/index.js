@@ -1,3 +1,3 @@
-import FeedTab from './FeedTab.vue';
+import FeedTab from './FeedTab.vue'
 
-export default FeedTab;
+export default FeedTab
