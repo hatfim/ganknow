@@ -9,7 +9,7 @@ const useConvertText = (feedContentProp) => {
   const convertUrlsToLinks = (text) =>
     text.replace(
       urlRegex,
-      (url) => `<a href="${url}" class="text-indigo-600" target="_blank">${url}</a>`
+      (url) => `<a href="${url}" class="text-indigo-600" target="_blank">${url}</a>`,
     )
 
   const convertNewlinesToBreaks = (text) => text.replace(/\n/g, '<br />')
@@ -19,9 +19,9 @@ const useConvertText = (feedContentProp) => {
       .split('\n\n')
       .map(
         (paragraph) =>
-          `<p>${convertUrlsToLinks(convertNewlinesToBreaks(paragraph))}</p>`
+          `<p>${convertUrlsToLinks(convertNewlinesToBreaks(paragraph))}</p>`,
       )
-      .join('')
+      .join(''),
   )
 
   return { formattedFeedContent }

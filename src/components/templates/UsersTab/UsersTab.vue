@@ -1,5 +1,10 @@
 <template>
-  <v-user-card />
+  <div v-if="users && users.length > 0" class="grid md:grid-cols-4 gap-4">
+    <v-user-card v-for="user in users" :key="user.id" :user="user" />
+  </div>
+  <div v-else>
+    No users found.
+  </div>
 </template>
 
 <script setup>
@@ -11,7 +16,6 @@ import VUserCard from '@/components/organisms/VUserCard'
 const store = useStore()
 
 const users = computed(() => store.getters['users/getUsers'])
-console.log(users)
 
 onMounted(async () => {
   try {

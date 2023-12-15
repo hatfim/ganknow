@@ -67,13 +67,13 @@ const props = defineProps({
 })
 const isPage = computed(() => route.name === 'post')
 const media = computed(() =>
-  props.feed.postMedia.length > 0 ? props.feed.postMedia[0].url : undefined
+  props.feed.postMedia.length > 0 ? props.feed.postMedia[0].url : undefined,
 )
 const { formattedFeedContent } = useConvertText(props.feed.content)
 
 const timeAgo = useTimeAgo(props.feed.createdAt)
 const hasTickBadge = computed(() =>
-  props.feed.authorUser.profile.customization.badges.includes('tick')
+  props.feed.authorUser.profile.customization.badges.includes('tick'),
 )
 const { safeHtml } = safeHtmlConverter(formattedFeedContent)
 

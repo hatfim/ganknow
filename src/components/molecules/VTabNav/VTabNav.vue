@@ -35,6 +35,6 @@ const tabClass = computed(
   () => (tabName) =>
     tabName === props.current
       ? 'border-primary text-primary'
-      : 'border-transparent text-gray-400 hover:text-white'
+      : 'border-transparent text-gray-400 hover:text-white',
 )
 </script>

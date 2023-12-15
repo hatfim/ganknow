@@ -34,7 +34,7 @@ import comments from './data'
 const showAllComments = ref(false)
 
 const displayedComments = computed(() =>
-  showAllComments.value ? comments : comments.slice(0, 2)
+  showAllComments.value ? comments : comments.slice(0, 2),
 )
 const totalComments = computed(() => {
   let total = 0
