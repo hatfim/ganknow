@@ -4,27 +4,28 @@ const useHttpClient = () => {
   const isLoading = ref(false)
   const error = ref(null)
 
-  const makeRequest = async (method, url, data) => {
+  const makeRequest = async (method, url, data = null) => {
     isLoading.value = true
     error.value = null
 
     try {
       const config = {
         method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-
-      if (data) {
-        config.body = JSON.stringify(data)
+        headers: { 'Content-Type': 'application/json' },
+        body: data ? JSON.stringify(data) : null,
       }
 
       const response = await fetch(url, config)
+      const responseData = await response.json()
+
+      if (!response.ok) {
+        throw new Error(responseData.message || 'Failed to fetch.')
+      }
+
       isLoading.value = false
-      return response
+      return responseData
     } catch (err) {
-      error.value = err
+      error.value = err.message
       isLoading.value = false
       throw err
     }

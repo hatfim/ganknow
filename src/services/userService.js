@@ -1,11 +1,9 @@
-import { useHttpClient } from '@/composables/httpClient'
+import useHttpClient from '@/composables/useHttpClient'
 
-const userService = () => {
-  const { get } = useHttpClient()
+const { get } = useHttpClient()
 
-  const fetchUsers = async () => get('https://jsonplaceholder.typicode.com/users')
+const fetchUsers = () => get('https://jsonplaceholder.typicode.com/users')
 
-  return { fetchUsers }
+export default {
+  fetchUsers,
 }
-
-export default userService

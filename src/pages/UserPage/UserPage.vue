@@ -8,57 +8,29 @@
       />
     </section>
     <section class="max-w-6xl mx-auto px-4 lg:px-8">
-      <header class="flex justify-between items-center -top-4 lg:-top-6">
-        <div
-          class="flex flex-col md:flex-row justify-start md:items-center space-y-4 md:space-x-8"
-        >
-          <v-avatar
-            img="https://lh3.googleusercontent.com/c8z_1HCYhinbcI164YumELKjAM3EUpTQdlshVxBwpXHuCD698DERm_-61z0poqOzbJEGuHuXxLHyNfEXg_Wiz4IZhSuykxgGHfrAt1LHr6kKhROpC4Txvg"
-          />
-          <div class="flex flex-col">
-            <h1 class="inline-flex items-center space-x-2">
-              <span class="text-2xl font-bold text-primary-foreground">Paddie</span>
-              <check-badge-icon class="h-5 w-5 text-primary" />
-            </h1>
-            <p class="inline-flex items-center space-x-1 text-primary-foreground">
-              <heart-icon class="h-5 w-5 text-primary" />
-              <span class="text-sm md:text-base">
-                <span class="font-bold">323.5k</span> Followers
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="flex justify-end items-center space-x-2">
-          <v-button class="rounded-lg hidden md:inline-flex">
-            Support Me
-            <heart-icon class="h-4 w-4" />
-          </v-button>
-          <v-button class="rounded-lg"> Follow </v-button>
-          <v-button variant="outline" class="rounded-lg">
-            <share-icon class="w-5 h-5" />
-          </v-button>
-        </div>
-      </header>
+      <v-profile-header
+        v-if="userProfile && userProfile.id"
+        :profile="userProfile"
+      />
       <v-tab-nav :navs="tabs" :current="currentRouteName" />
-      <router-view v-slot="{ Component }">
-        <transition>
-          <component :is="Component" />
-        </transition>
-      </router-view>
+      <div class="w-full overflow-hidden mt-8">
+        <router-view v-slot="{ Component }">
+          <transition name="fade">
+            <component :is="Component" :key="route.fullPath" />
+          </transition>
+        </router-view>
+      </div>
     </section>
   </main>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 
-import { ShareIcon } from '@heroicons/vue/24/outline'
-import { CheckBadgeIcon, HeartIcon } from '@heroicons/vue/24/solid'
-
-import VAvatar from '@/components/atoms/VAvatar'
-import VButton from '@/components/atoms/VButton'
 import VTabNav from '@/components/molecules/VTabNav'
+import VProfileHeader from '@/components/organisms/VProfileHeader'
 
 const route = useRoute()
 const currentRouteName = computed(() => route.name)
@@ -70,27 +42,28 @@ const props = defineProps({
   },
 })
 
+const store = useStore()
+
 const tabs = [
   { name: 'profile', label: 'Profile', link: `/${props.username}` },
   { name: 'feed', label: 'Feed', link: `/${props.username}/feed` },
-  { name: 'shop', label: 'Shop', link: `/${props.username}/shop` },
+  { name: 'users', label: 'Users List', link: `/${props.username}/users` },
 ]
+
+const userProfile = computed(() => store.getters['profile/getProfile'])
+
+onMounted(async () => {
+  try {
+    await store.dispatch('profile/fetchUserProfile', currentRouteName)
+
+    const userId = userProfile.value.id
+    if (userId) {
+      await store.dispatch('feeds/fetchUserFeed', userId)
+    } else {
+      console.error('User ID not found in profile')
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
+})
 </script>
-
-<style scoped>
-/* Define your slide transition */
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.3s ease;
-}
-
-.slide-enter-from,
-.slide-leave-to {
-  transform: translateX(100%);
-}
-
-.slide-enter-to,
-.slide-leave-from {
-  transform: translateX(0);
-}
-</style>

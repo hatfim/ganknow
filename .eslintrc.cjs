@@ -100,7 +100,7 @@ module.exports = {
         groups: [
           ['module', '/^@shared/'],
           ['/^@heroicons/'],
-          ['/^@\\/router/', '/^@\\/assets/'],
+          ['/^@\\/router/', '/^@\\/store/', '/^@\\/composables/', '/^@\\/assets/'],
           ['/^@\\/components/'],
           ['parent', 'sibling', 'index'],
         ],

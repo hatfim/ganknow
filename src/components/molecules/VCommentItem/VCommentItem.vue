@@ -15,8 +15,9 @@
 </template>
 
 <script setup>
-import safeHtmlConverter from '@/composables/useSafeHtmlConverter'
 import { ref, onMounted, computed, watch } from 'vue'
+
+import safeHtmlConverter from '@/composables/useSafeHtmlConverter'
 
 import VAvatar from '@/components/atoms/VAvatar'
 

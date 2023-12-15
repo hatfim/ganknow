@@ -38,8 +38,8 @@ defineProps({
 // Size classes
 const imgSizeClasses = {
   default: 'w-24 lg:w-32 ring-4 ring-white',
-  medium: 'w-12',
-  small: 'w-10',
+  medium: 'w-16 ring-2 ring-white',
+  small: 'w-12',
 }
 const statusSizeClasses = {
   default: 'h-4 w-4',
