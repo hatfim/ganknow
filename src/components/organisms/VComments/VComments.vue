@@ -1,34 +1,53 @@
 <template>
-  <v-comment-item :comment="comment" />
+  <aside class="px-5 md:pt-4">
+    <v-comment-input />
+    <section class="space-y-2 mt-4">
+      <div v-for="comment in displayedComments" :key="comment.id">
+        <v-comment-item :comment="comment" />
+        <div v-if="comment.replies" class="pl-12 mt-4">
+          <v-comment-item
+            v-for="comment_replies in comment.replies"
+            :key="comment_replies.id"
+            :comment="comment_replies"
+          />
+        </div>
+      </div>
+    </section>
+    <button
+      v-if="comments.length > 2"
+      class="mt-4 font-bold"
+      @click="toggleComments"
+    >
+      {{ showAllComments ? 'Hide Comment' : `View ${totalComments} more comments` }}
+    </button>
+  </aside>
 </template>
 
 <script setup>
-import { VCommentItem } from '@/components/atoms/VCommentItem'
+import { computed, ref } from 'vue'
 
-const comment = {
-  id: '9ab6d023-8b80-47a2-b3b4-d7378bb7a22b',
-  createdAt: '2023-12-13T09:18:56+08:00',
-  updatedAt: '2023-12-13T09:18:56+08:00',
-  content: 'kaname stop using my photos please ',
-  author: '3f639cae-93ac-4f34-85ac-a5199de47a2b',
-  post_id: '41da4b3a-df7c-4f6b-919b-aa900f611f69',
-  post: null,
-  authorUser: {
-    avatar:
-      'https://lh3.googleusercontent.com/rcLPF-4COjx1mlsuuz62PYoXkH7OmhYTMIE2CLP0eTobYSav7zvrkmN1kejeb8KpRU7384wt8ApUq49kmRn5LQfx-OY6cvbD-bfNDWeLH4YLhFd1At6RIQ',
-    email: 'ketsumehatsume@gmail.com',
-    id: '3f639cae-93ac-4f34-85ac-a5199de47a2b',
-    nickname: 'Shumie',
-    isMembershipEnabled: true,
-    roles: null,
-    profile: {
-      customization: {
-        badges: ['tick'],
-      },
-    },
-  },
-  replyToID: null,
-  replies: null,
-  softDeletedAt: null,
+import VCommentInput from '@/components/molecules/VCommentInput'
+import VCommentItem from '@/components/molecules/VCommentItem'
+
+import comments from './data'
+
+const showAllComments = ref(false)
+
+const displayedComments = computed(() =>
+  showAllComments.value ? comments : comments.slice(0, 2)
+)
+const totalComments = computed(() => {
+  let total = 0
+  comments.forEach((comment) => {
+    total += 1
+    if (comment.replies) {
+      total += comment.replies.length
+    }
+  })
+  return total - 2
+})
+
+const toggleComments = () => {
+  showAllComments.value = !showAllComments.value
 }
 </script>

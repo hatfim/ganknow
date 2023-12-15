@@ -1,10 +1,8 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
+const tailwindForms = require('@tailwindcss/forms')
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: [
-    './index.html',
-    './src/**/*.{vue,js,ts,jsx,tsx}',
-  ],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     container: {
@@ -51,9 +49,9 @@ module.exports = {
         },
       },
       borderRadius: {
-        xl: `calc(var(--radius) + 4px)`,
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
+        xl: 'calc(var(--radius) + 4px)',
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
@@ -75,4 +73,5 @@ module.exports = {
       },
     },
   },
-};
+  plugins: [tailwindForms],
+}

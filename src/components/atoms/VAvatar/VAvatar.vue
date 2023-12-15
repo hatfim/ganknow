@@ -1,9 +1,9 @@
 <template>
   <div class="relative inline-block" @click="handleClick">
     <img
-      :src="avatar.img"
-      :alt="`${avatar.username} Avatar`"
-      class="rounded-full"
+      :src="img"
+      alt="Avatar"
+      class="rounded-full max-w-none"
       :class="[imgSizeClasses[size] || imgSizeClasses['default']]"
     />
     <span
@@ -21,9 +21,9 @@
 import { defineEmits } from 'vue'
 
 defineProps({
-  avatar: {
-    type: Object,
-    default: () => {},
+  img: {
+    type: String,
+    required: true,
   },
   size: {
     type: String,

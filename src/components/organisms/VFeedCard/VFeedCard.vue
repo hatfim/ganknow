@@ -2,7 +2,10 @@
   <article class="bg-card py-5 rounded-lg">
     <header class="flex justify-between items-center px-5">
       <div class="flex flex-col md:flex-row justify-start md:items-center space-x-2">
-        <v-avatar size="medium" :avatar="avatar" />
+        <v-avatar
+          size="medium"
+          img="https://lh3.googleusercontent.com/c8z_1HCYhinbcI164YumELKjAM3EUpTQdlshVxBwpXHuCD698DERm_-61z0poqOzbJEGuHuXxLHyNfEXg_Wiz4IZhSuykxgGHfrAt1LHr6kKhROpC4Txvg"
+        />
         <div class="flex flex-col">
           <h2 class="inline-flex items-center space-x-1">
             <span class="font-bold text-primary-foreground">Paddie</span>
@@ -41,21 +44,14 @@
     <section class="px-5 md:pt-4">
       <v-feed-action class="mt-4" :like="0" :share="0" :comment="0" />
     </section>
-    <aside class="px-5 md:pt-4">
-      <v-comments />
-    </aside>
+    <v-comments />
   </article>
 </template>
 
 <script setup>
 import { CheckBadgeIcon, EllipsisVerticalIcon } from '@heroicons/vue/24/solid'
 
-import { VAvatar } from '@/components/atoms/VAvatar'
-import { VFeedAction } from '@/components/molecules/VFeedAction'
-import { VComments } from '@/components/organisms/VComments'
-
-const avatar = {
-  img: 'https://lh3.googleusercontent.com/c8z_1HCYhinbcI164YumELKjAM3EUpTQdlshVxBwpXHuCD698DERm_-61z0poqOzbJEGuHuXxLHyNfEXg_Wiz4IZhSuykxgGHfrAt1LHr6kKhROpC4Txvg',
-  username: 'Paddie',
-}
+import VAvatar from '@/components/atoms/VAvatar'
+import VFeedAction from '@/components/molecules/VFeedAction'
+import VComments from '@/components/organisms/VComments'
 </script>

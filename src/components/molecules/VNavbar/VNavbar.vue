@@ -48,7 +48,7 @@ import { LanguageIcon, Bars3Icon } from '@heroicons/vue/24/solid'
 import logoIcon from '@/assets/images/logo_icon.svg'
 import logoMain from '@/assets/images/logo_main.svg'
 
-import { VButton } from '@/components/atoms/VButton'
+import VButton from '@/components/atoms/VButton'
 
 const navigation = [
   { name: 'Discover', href: '#' },

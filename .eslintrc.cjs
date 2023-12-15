@@ -69,6 +69,24 @@ module.exports = {
     'no-duplicate-imports': ERROR,
     'no-unreachable': [ERROR],
     'no-unexpected-multiline': [ERROR],
+    'no-param-reassign': [
+      ERROR,
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'state', // for vuex state accumulators
+          'acc', // for reduce accumulators
+          'e', // for e.returnvalue
+          'ctx', // for Koa routing
+          'req', // for Express requests
+          'request', // for Express requests
+          'res', // for Express responses
+          'response', // for Express responses
+          '$scope', // for Angular 1 scopes
+        ],
+      },
+    ],
+    'no-shadow': [ERROR, { allow: ['state'] }],
 
     // Import
     'import/default': OFF,
