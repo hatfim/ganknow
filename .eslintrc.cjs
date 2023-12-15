@@ -12,12 +12,14 @@ module.exports = {
     'airbnb-base',
     'plugin:vue/vue3-recommended',
     'plugin:tailwindcss/recommended',
+    'plugin:prettier-vue/recommended',
+    'prettier',
   ],
   parserOptions: {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['import', 'import-helpers', 'vue', 'tailwindcss', 'prettier'],
+  plugins: ['import', 'import-helpers', 'vue', 'tailwindcss'],
   rules: {
     'comma-dangle': ERROR,
     indent: OFF,
@@ -77,12 +79,18 @@ module.exports = {
       WARN,
       {
         newlinesBetween: 'always', // new line between groups
-        groups: ['module', '/^@/shared/', ['parent', 'sibling', 'index']],
+        groups: [
+          ['module', '/^@shared/'],
+          ['/^@heroicons/'],
+          ['/^@\\/router/', '/^@\\/assets/'],
+          ['/^@\\/components/'],
+          ['parent', 'sibling', 'index'],
+        ],
         alphabetize: { order: 'asc', ignoreCase: true },
       },
     ],
     'import/extensions': OFF,
-    'import/no-extraneous-dependencies': [0, { 'packageDir ': './src/' }],
+    'import/no-extraneous-dependencies': [OFF, { 'packageDir ': './src/' }],
     'max-len': [
       'error',
       {
@@ -91,9 +99,32 @@ module.exports = {
         ignoreUrls: true,
       },
     ],
-    'vue/multi-word-component-names': OFF,
-    'prettier/prettier': ERROR,
 
+    // Vue
+    'vue/no-v-text-v-html-on-component': OFF,
+    'vue/valid-model-definition': OFF,
+    'vue/valid-attribute-name': OFF,
+    'vue/first-attribute-linebreak': [
+      'error',
+      {
+        singleline: 'ignore',
+        multiline: 'ignore',
+      },
+    ],
+    'prettier-vue/prettier': [
+      'error',
+      {
+        // Override all options of `prettier` here
+        // @see https://prettier.io/docs/en/options.html
+        arrowParens: 'always',
+        endOfLine: 'auto',
+        printWidth: 85,
+        semi: false,
+        singleQuote: true,
+        tabWidth: 2,
+        trailingComma: 'es5',
+      },
+    ],
     // Tailwind
     'tailwindcss/classnames-order': OFF, // conflicts with prettier-plugin-tailwindcss
     'tailwindcss/enforces-negative-arbitrary-values': ERROR,
@@ -110,6 +141,28 @@ module.exports = {
       alias: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', 'svg'],
         map: [['@', './src']],
+      },
+    },
+    'prettier-vue': {
+      // Settings for how to process Vue SFC Blocks
+      SFCBlocks: {
+        template: false,
+        script: false,
+        style: false,
+      },
+
+      // Use prettierrc for prettier options or not (default: `true`)
+      usePrettierrc: true,
+
+      // Set the options for `prettier.getFileInfo`.
+      // @see https://prettier.io/docs/en/api.html#prettiergetfileinfofilepath-options
+      fileInfoOptions: {
+        // Path to ignore file (default: `'.prettierignore'`)
+        // Notice that the ignore file is only used for this plugin
+        ignorePath: '.testignore',
+
+        // Process the files in `node_modules` or not (default: `false`)
+        withNodeModules: false,
       },
     },
   },
